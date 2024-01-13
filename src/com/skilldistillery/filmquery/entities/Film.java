@@ -172,7 +172,7 @@ public class Film {
 		return "Film id: " + filmId + " Title: " + title + " Description: " + description + " ReleaseYear: "
 				+ releaseYear + " LanguageId: " + languageId + " Rental Duration: " + rentalDuration + " Rental Rate: "
 				+ rentalRate + " Length: " + length + " Replacement Cost: " + replacementCost + " Rating: " + rating
-				+ " Special Features: " + specialFeatures;
+				+ " Special Features: " + specialFeatures + "\n";
 	}
 
 }
