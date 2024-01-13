@@ -15,8 +15,18 @@ public class Film {
 	private Double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	private String keyword;
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
 	private List<Actor> actors;
-	
+
 	public List<Actor> getActors() {
 		return actors;
 	}

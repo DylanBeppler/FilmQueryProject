@@ -1,6 +1,7 @@
 package com.skilldistillery.filmquery.app;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
@@ -42,6 +43,7 @@ public class FilmQueryApp {
 			System.out.println("2. Look up a film by a search keyword");
 			System.out.println("3. Exit application");
 			int option = input.nextInt();
+			input.nextLine();
 			switch (option) {
 
 			case 1:
@@ -59,7 +61,14 @@ public class FilmQueryApp {
 
 	private void findFilmByKeyword() {
 		System.out.println("Please enter a keyword to search a film");
-		// TODO Auto-generated method stub
+		String option = input.nextLine();
+		List<Film> film = db.findFilmByKeyword(option);
+		if (film != null) {
+			System.out.println(film);
+		} else {
+			System.out.println("No movie was found under this keyword. Please try again.");
+		
+		}
 
 	}
 
@@ -67,13 +76,11 @@ public class FilmQueryApp {
 		System.out.println("Please enter the film id number");
 		int option = input.nextInt();
 		Film film = db.findFilmById(option);
-		
 		if (film != null) {
 			System.out.println(film);
 		} else {
-
 			System.out.println("No movie was found under this id. Please try again.");
-			// TODO Auto-generated method stub
+		
 		}
 
 	}
