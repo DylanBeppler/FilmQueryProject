@@ -21,7 +21,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Film film = null;
 		try {
 			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-			String sql = "SELECT * FROM film WHERE id = ?";
+			String sql = "SELECT film.*, language.id, language.name FROM film JOIN language ON film.language_id = language.id WHERE film.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
 			ResultSet filmResult = stmt.executeQuery();
@@ -31,7 +31,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setTitle(filmResult.getString("title"));
 				film.setDescription(filmResult.getString("description"));
 				film.setReleaseYear(filmResult.getShort("release_year"));
-				film.setLanguageId(filmResult.getInt("language_id"));
+				film.setLanguage(filmResult.getString("language.name"));
 				film.setRentalDuration(filmResult.getInt("rental_duration"));
 				film.setRentalRate(filmResult.getDouble("rental_rate"));
 				film.setLength(filmResult.getInt("length"));
@@ -45,6 +45,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return film;
 	}
 
+	
+	
+	
 	public Actor findActorById(int actorId) {
 		Actor actor = null;
 		try {
@@ -69,14 +72,16 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	public List<Actor> findActorsByFilmId(int filmId) {
 		List<Actor> actors = new ArrayList<>();
-		Actor actor = new Actor();
 		try {
 			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-			String sql = "SELECT actor.id, actor.first_name, actor.last_name FROM actor JOIN film_actor ON actor.id = film_actor.actor_id JOIN film ON film_actor.film_id = film.id WHERE film.id = ?";
+			String sql = "SELECT actor.*, film.*\\n\" + \"FROM actor\\n\" + \"JOIN film_actor fa ON actor.id = fa.actor_id\\n\"\n"
+					+ "				+ \"JOIN film ON film.id = fa.film_id WHERE film.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
 			ResultSet actorResult = stmt.executeQuery();
-			if (actorResult.next()) {
+			while (actorResult.next()) {
+				Actor actor = new Actor();
+				actor = new Actor();
 				actor.setId(actorResult.getInt("id"));
 				actor.setFirstName(actorResult.getString("first_name"));
 				actor.setLastName(actorResult.getString("last_name"));
@@ -111,7 +116,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setTitle(filmResult.getString("title"));
 				film.setDescription(filmResult.getString("description"));
 				film.setReleaseYear(filmResult.getShort("release_year"));
-				film.setLanguageId(filmResult.getInt("language_id"));
+				film.setLanguage(filmResult.getString("language.name"));
 				film.setRentalDuration(filmResult.getInt("rental_duration"));
 				film.setRentalRate(filmResult.getDouble("rental_rate"));
 				film.setLength(filmResult.getInt("length"));

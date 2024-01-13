@@ -16,6 +16,14 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private String keyword;
+	private String language;
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
 
 	public String getKeyword() {
 		return keyword;
@@ -123,7 +131,7 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 	}
 
-	public Film(int filmId, String title, String description, Short releaseYear, Integer languageId,
+	public Film(int filmId, String title, String description, Short releaseYear, Integer language,
 			Integer rentalDuration, Double rentalRate, Integer length, Double replacementCost, String rating,
 			String specialFeatures) {
 		super();
@@ -170,7 +178,7 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Film id: " + filmId + " Title: " + title + " Description: " + description + " ReleaseYear: "
-				+ releaseYear + " LanguageId: " + languageId + " Rental Duration: " + rentalDuration + " Rental Rate: "
+				+ releaseYear + " Language: " + language + " Rental Duration: " + rentalDuration + " Rental Rate: "
 				+ rentalRate + " Length: " + length + " Replacement Cost: " + replacementCost + " Rating: " + rating
 				+ " Special Features: " + specialFeatures + "\n";
 	}
