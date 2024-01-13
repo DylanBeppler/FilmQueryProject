@@ -29,18 +29,21 @@ public class FilmQueryApp {
 		
 		startUserInterface(input);
 		
+		input.close();
 		// terminate program when user selects "Quit"
 
 	}
 
 	private void startUserInterface(Scanner input) {
 //menu options
+		
+		while(true) {
+		System.out.println("");
 		System.out.println("1. Look up a film by its id");
 		System.out.println("2. Look up a film by a search keyword");
 		System.out.println("3. Exit application");
 		int option = input.nextInt();
-		while(option != 3)
-		switch (option) {
+			switch (option) {
 
 		case 1:
 			findFilmById();
@@ -49,15 +52,12 @@ public class FilmQueryApp {
 			findFilmByKeyword();
 			break;
 		case 3:
-			input.close();
-			
+			System.exit(option);
+			}
 		}
 	}
 
-	private void exit() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	private void findFilmByKeyword() {
 	System.out.println("Please enter a keyword to search a film");
