@@ -9,41 +9,70 @@ import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
-
-private	DatabaseAccessor db = new DatabaseAccessorObject();
+	
+	Scanner input = new Scanner(System.in);
+	private DatabaseAccessor db = new DatabaseAccessorObject();
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
-	try {
-		app.test();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-    //app.launch();
+
+		app.launch();
 	}
 
-	private void test() throws SQLException {
-		Film film = db.findFilmById(1);
+	private void test() {
 		Actor actor = db.findActorById(5);
-		System.out.println(film);
 		System.out.println(actor);
 	}
 
 	private void launch() {
-		Scanner input = new Scanner(System.in);
 
-		startUserInterface(input);
-
-		input.close();
-	//terminate program when user selects "Quit"
 		
+		startUserInterface(input);
+		
+		// terminate program when user selects "Quit"
+
 	}
 
 	private void startUserInterface(Scanner input) {
 //menu options
+		System.out.println("1. Look up a film by its id");
+		System.out.println("2. Look up a film by a search keyword");
+		System.out.println("3. Exit application");
+		int option = input.nextInt();
+		while(option != 3)
+		switch (option) {
+
+		case 1:
+			findFilmById();
+			break;
+		case 2:
+			findFilmByKeyword();
+			break;
+		case 3:
+			input.close();
+			
+		}
+	}
+
+	private void exit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void findFilmByKeyword() {
+	System.out.println("Please enter a keyword to search a film");
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void findFilmById() {
+		System.out.println("Please enter the film id number");
+		int option = input.nextInt();
+		Film film = db.findFilmById(option);
+		System.out.println(film);
+		// TODO Auto-generated method stub
+		
+		
 	}
 
 }
-//Only class with a scanner
