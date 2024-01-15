@@ -1,7 +1,8 @@
 # FilmQueryProject
 
 
-
+<img src ="https://cdn1.iconfinder.com/data/icons/database-and-server-1/100/Database-and-servers_Hard_Disk_Drive-512.png">
+<br>
 <h2>Description</h2>
 This Film Query Project is designed as a console based application that allows users to search for films stored in a database by either film ID or a keyword. The application displays detailed information about films, including the title, description, release year, language, and list of actors. It's an easy-to-use tool, perfect for anyone interested in exploring a film database interactively.
 
@@ -21,5 +22,3 @@ Managing SQL queries and understanding the importance of database indexing for p
 Exception handling in Java to make the application more robust and user friendly.
 The importance of clean and readable code, which makes it easier to maintain and update the application.
 The practical use of loops and conditionals to handle user input and control the flow of the application.
-<br>
-<img src ="https://cdn1.iconfinder.com/data/icons/database-and-server-1/100/Database-and-servers_Hard_Disk_Drive-512.png">
