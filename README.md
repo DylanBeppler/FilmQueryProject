@@ -21,3 +21,5 @@ Managing SQL queries and understanding the importance of database indexing for p
 Exception handling in Java to make the application more robust and user friendly.
 The importance of clean and readable code, which makes it easier to maintain and update the application.
 The practical use of loops and conditionals to handle user input and control the flow of the application.
+<br>
+<img src ="https://cdn1.iconfinder.com/data/icons/database-and-server-1/100/Database-and-servers_Hard_Disk_Drive-512.png">
