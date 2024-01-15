@@ -1,6 +1,7 @@
 package com.skilldistillery.filmquery.app;
 
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,6 +39,7 @@ public class FilmQueryApp {
 //menu options
 
 		while (true) {
+			try {
 			System.out.println("");
 			System.out.println("1. Look up a film by its id");
 			System.out.println("2. Look up a film by a search keyword");
@@ -55,8 +57,14 @@ public class FilmQueryApp {
 			case 3:
 				System.out.println("Goodbye!");
 				System.exit(option);
+			default: 
+				System.out.println("Invalid option, please enter 1, 2, or 3.");
+			} 
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid option, please enter 1, 2, or 3.");
+			input.nextLine();
 			}
-		}
+		}	
 	}
 
 	private void findFilmByKeyword() {
