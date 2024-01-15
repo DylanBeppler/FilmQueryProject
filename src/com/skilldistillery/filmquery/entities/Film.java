@@ -17,6 +17,8 @@ public class Film {
 	private String specialFeatures;
 	private String keyword;
 	private String language;
+	private List<Actor> actors;
+
 	public String getLanguage() {
 		return language;
 	}
@@ -33,7 +35,6 @@ public class Film {
 		this.keyword = keyword;
 	}
 
-	private List<Actor> actors;
 
 	public List<Actor> getActors() {
 		return actors;
@@ -180,7 +181,7 @@ public class Film {
 		return "Film id: " + filmId + " Title: " + title + " Description: " + description + " ReleaseYear: "
 				+ releaseYear + " Language: " + language + " Rental Duration: " + rentalDuration + " Rental Rate: "
 				+ rentalRate + " Length: " + length + " Replacement Cost: " + replacementCost + " Rating: " + rating
-				+ " Special Features: " + specialFeatures + "\n";
+				+ " Special Features: " + specialFeatures + "\nActors: " + actors;
 	}
 
 }

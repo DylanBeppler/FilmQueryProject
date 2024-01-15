@@ -23,7 +23,7 @@ public class Actor {
 
 	@Override
 	public String toString() {
-		return "Actor id: " + id + " First Name: " + firstName + " Last Name: " + lastName + " Films: " + films;
+		return "Actor id: " + id + " First Name: " + firstName + " Last Name: " + lastName + "\n";
 	}
 
 	public int getId() {
